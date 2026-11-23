@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Lucia Caminos Outfit Generator | GTA 6 Style</title>
+    <meta name="description" content="Fan-made GTA 6 outfit builder for Lucia Caminos: live mannequin, hundreds of pieces, plus a cash and inventory tracker.">
+    <meta name="theme-color" content="#0a0a12">
+    <meta name="color-scheme" content="dark">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lucia Outfit Lab">
+    <meta property="og:description" content="Dress Lucia live, save looks, share a link, track your GTA 6 cash.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Lucia Lab">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script defer src="js/data.js"></script>
+    <script defer src="js/engine.js"></script>
+    <script defer src="js/body.js"></script>
+    <script defer src="js/inventory.js"></script>
+    <script defer src="js/app.js"></script>
+    <script defer src="js/cash.js"></script>
+    <script defer src="js/catalog.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge">GTA 6 • Leonida Fashion Lab</div>
+            <h1>LUCIA OUTFIT LAB</h1>
+            <p class="subtitle">Build authentic outfits for Lucia Caminos. Mix hundreds of pieces from official looks, stores, and Florida-core style. Dress the mannequin live.</p>
+        </header>
+
+        <h2 class="section-title">Iconic Official Looks</h2>
+        <div class="gallery">
+            <div class="outfit-card">
+                <img loading="lazy" decoding="async" onerror="this.style.visibility='hidden'" src="images/moto-queen.jpg" srcset="images/moto-queen-560.webp 560w, images/moto-queen-784.webp 784w" sizes="(max-width:600px) 92vw, 360px" width="784" height="1168" alt="Lucia leather jacket">
+                <div class="outfit-info">
+                    <h3>Moto Queen</h3>
+                    <p>Black leather biker jacket over white crop tank + gold pendant. Classic getaway look from official screenshots.</p>
+                    <div class="tags"><span class="tag">Street</span><span class="tag">Heist</span><span class="tag">Leather</span></div>
+                </div>
+            </div>
+            <div class="outfit-card">
+                <img loading="lazy" decoding="async" onerror="this.style.visibility='hidden'" src="images/red-sequin.jpg" srcset="images/red-sequin-560.webp 560w, images/red-sequin-784.webp 784w" sizes="(max-width:600px) 92vw, 360px" width="784" height="1168" alt="Lucia red sequin">
+                <div class="outfit-info">
+                    <h3>Vintage Vice City</h3>
+                    <p>Plunging red sequin mini dress + big 1980s curls. Vintage Vice City Pack exclusive.</p>
+                    <div class="tags"><span class="tag">Club</span><span class="tag">Sequin</span><span class="tag">Bonus Pack</span></div>
+                </div>
+            </div>
+            <div class="outfit-card">
+                <img loading="lazy" decoding="async" onerror="this.style.visibility='hidden'" src="images/tiger-boots.jpg" srcset="images/tiger-boots-560.webp 560w, images/tiger-boots-784.webp 784w" sizes="(max-width:600px) 92vw, 360px" width="784" height="1168" alt="Lucia tiger boots">
+                <div class="outfit-info">
+                    <h3>Tiger Boots Set</h3>
+                    <p>Rust suede jacket + mini skirt, leopard top, tiger-stripe knee-high boots. Ultimate Edition Vice City Style.</p>
+                    <div class="tags"><span class="tag">Ultimate</span><span class="tag">Statement</span><span class="tag">Boots</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-lab">
+            <div class="mannequin-panel">
+                <h3>✦ Live Mannequin ✦</h3>
+                <div class="mannequin-wrap" id="stage">
+                    <svg id="mq" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lucia mannequin preview"><defs id="defs"></defs><g id="Lfl"></g><g id="fig" filter="url(#vol)"><g class="ly" style="--d:-5"><g id="Lhb" transform="translate(150 90) scale(1.18) translate(-150 -90)"></g></g><g class="ly" style="--d:0"><g id="Lbody"></g></g><g class="ly" style="--d:1.5"><g id="Lbo" filter="url(#ds)"></g><g id="Lsh" filter="url(#ds)"></g></g><g class="ly" style="--d:3"><g id="Lto" filter="url(#ds)"></g></g><g class="ly" style="--d:5"><g id="Lou" filter="url(#ds)"></g></g><g class="ly" style="--d:7"><g id="Lhf" transform="translate(150 90) scale(1.18) translate(-150 -90)"></g><g id="Lac"></g></g></g></svg>
+                </div>
+                <div class="toolbar"><button type="button" class="tb" id="bUndo" onclick="undo()" title="Undo (Ctrl+Z)" aria-label="Undo">↶</button><button type="button" class="tb" id="bRedo" onclick="redo()" title="Redo (Ctrl+Y)" aria-label="Redo">↷</button><button type="button" class="tb" onclick="randomizeAll()" title="Randomize (R)" aria-label="Randomize">🎲</button></div>
+                <div class="wearing-summary" id="wearingSummary">
+                    <div><strong>Top:</strong> <span id="sumTop">—</span></div>
+                    <div><strong>Bottom:</strong> <span id="sumBottom">—</span></div>
+                    <div><strong>Outer:</strong> <span id="sumOuter">—</span></div>
+                    <div><strong>Shoes:</strong> <span id="sumShoes">—</span></div>
+                    <div><strong>Accessories:</strong> <span id="sumAcc">—</span></div>
+                    <div><strong>Hair:</strong> <span id="sumHair">—</span></div>
+                </div>
+                            </div>
+
+            <div class="controls-panel">
+                <h2>Build Her Outfit</h2>
+                <div class="controls">
+                    <div class="control-group"><label>Top / Dress</label><select id="top" onchange="updateMannequin()"></select></div>
+                    <div class="control-group"><label>Bottom</label><select id="bottom" onchange="updateMannequin()"></select></div>
+                    <div class="control-group"><label>Outerwear</label><select id="outer" onchange="updateMannequin()"></select></div>
+                    <div class="control-group"><label>Footwear</label><select id="shoes" onchange="updateMannequin()"></select></div>
+                    <div class="control-group"><label>Accessories</label><select id="accessories" onchange="updateMannequin()"></select></div>
+                    <div class="control-group"><label>Hair Style</label><select id="hair" onchange="updateMannequin()"></select></div>
+                    <div class="control-group"><label>Hair Color (preview)</label><select id="hcolor" onchange="updateMannequin()"></select></div>
+                    <div class="control-group"><label>Skin Tone</label><select id="skin" onchange="updateMannequin()"></select></div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn-primary" onclick="generateOutfit()">Generate Full Look</button>
+                    <button class="btn-secondary" onclick="randomizeAll()">Randomize Everything</button>
+                    <button class="btn-secondary" onclick="resetLook()">Reset</button>
+                    <button class="btn-secondary" onclick="copyLook()">Copy Look</button>
+                    <button class="btn-secondary" onclick="saveLook()">Save Look</button>
+                    <button class="btn-secondary" onclick="shareLook()">Share Link</button>
+                    <button class="btn-secondary" onclick="savePNG()">PNG</button>
+                </div>
+                <div class="saved" id="saved"></div>
+                <div class="count-badge">Current catalog: <span id="comboCount">0</span> possible combinations</div>
+                <div class="result-box" id="result" aria-live="polite">
+                    <h3 id="outfitName">Your Lucia Look</h3>
+                    <ul class="piece-list" id="pieceList"></ul>
+                    <p class="style-note" id="styleNote"></p>
+                    <p style="margin-top:12px;font-size:0.8rem;color:#8a7a9a;">💡 Change at any clothing store or safehouse wardrobe. Police remember outfits — switch after jobs!</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="hub" id="cashHub" aria-label="Cash Hub">
+            <h2 class="section-title">💵 Cash Hub</h2>
+            <div class="hub-top">
+                <div><label class="l" for="wallet">Cash on hand</label><input type="number" min="0" id="wallet" placeholder="$0"></div>
+                <div><label class="l" for="goal">Outfit goal</label><input type="number" min="0" id="goal" placeholder="$0">
+                    <div class="hrow"><button type="button" class="tb" id="goalFit">Use outfit total</button><button type="button" class="tb" id="buy">Buy outfit</button></div></div>
+                <div><div class="bar"><i id="bar"></i></div><div id="gap" aria-live="polite"></div></div>
+            </div>
+            <div class="hub-card bank"><h3>🏦 Bank <small class="hint" style="font-weight:400">Banked money is safe if you die or get arrested.</small></h3>
+                <div class="bank-grid"><div><label class="l" for="bankIn">Banked</label><input type="number" min="0" id="bankIn" placeholder="$0"></div><div><span class="l">At risk (cash)</span><b id="atRisk">$0</b></div><div><span class="l">Net worth</span><b id="net">$0</b></div></div>
+                <div class="logbar" style="margin-top:0"><input type="number" min="1" id="ba" placeholder="Amount $" aria-label="Bank amount"><button type="button" class="btn-secondary" id="dep">Deposit</button><button type="button" class="btn-secondary" id="wd">Withdraw</button><button type="button" class="tb" id="depAll">Deposit all cash</button><button type="button" class="tb" id="wdAll">Withdraw all</button></div>
+                <div class="quick" id="bq"><span class="hint">Fill amount:</span><button type="button" class="tb" data-p="25">25% of cash</button><button type="button" class="tb" data-p="50">50%</button><button type="button" class="tb" data-p="75">75%</button></div><div class="ms" id="riskWarn" aria-live="polite"></div>
+                <h3 style="margin-top:12px">🔐 Vaults <small class="hint" style="font-weight:400">Earmark banked money for a goal (car fund, heist gear).</small></h3>
+                <div class="hrow invf"><input type="text" id="vn" placeholder="Vault name" maxlength="24" aria-label="Vault name"><input type="number" min="1" id="vt" placeholder="Target $" aria-label="Vault target"><button type="button" class="tb" id="vadd">New vault</button></div><div id="vaults"></div>
+                <h3 style="margin-top:12px">🧾 Log spending</h3>
+                <div class="hrow invf"><input type="text" id="sn" placeholder="Spent on… (car, gear)" maxlength="30" aria-label="What you spent on"><input type="number" min="1" id="sa" placeholder="Amount $" aria-label="Amount spent"><select id="ss" aria-label="Pay from"><option value="w">From cash</option><option value="b">From bank</option></select><button type="button" class="btn-secondary" id="sb">Log spending</button></div>
+                <div class="ap"><label for="ap">Auto-bank on logged scores</label><input type="range" id="ap" min="0" max="100" step="10" value="0"><b id="apv">0%</b></div>
+                <ul id="bankLog"></ul></div>
+            <div class="hub-grid">
+                <div class="hub-card"><h3>Price my outfit</h3><div id="priceRows"></div><div id="priceTotal"></div><small class="hint">Type the price tag from the store. Nothing here is guessed, and prices are remembered per piece.</small></div>
+                <div class="hub-card"><h3>Plan my grind</h3><div class="seg" id="mode"><button type="button" data-m="safe">Safe</button><button type="button" data-m="bal">Balanced</button><button type="button" data-m="fast">Fast</button></div><ol id="plan"></ol><small class="hint">Estimates use the average of scores you log below.</small></div>
+            </div>
+            <div class="hub-card" id="hubX" style="margin:16px 0"></div>
+            <div class="methods" id="methods"></div>
+            <div class="logbar"><select id="lm" aria-label="Score source"></select><input type="number" min="1" id="la" placeholder="Amount $" aria-label="Amount earned"><button type="button" class="btn-primary" id="lb">Log score</button></div>
+            <div class="quick" id="quick"><button type="button" class="tb" data-n="500">+500</button><button type="button" class="tb" data-n="1000">+1,000</button><button type="button" class="tb" data-n="5000">+5,000</button><button type="button" class="tb" data-n="25000">+25,000</button></div>
+            <div class="hub-card" style="margin-top:16px"><h3>Score log <small id="earned" class="hint" style="font-weight:400"></small></h3><ul id="log"></ul><div class="hrow"><button type="button" class="tb" id="undoLog">Undo last</button><button type="button" class="tb" id="clearLog">Clear log</button><button type="button" class="tb" id="backup">Backup</button><button type="button" class="tb" id="restore">Restore</button></div></div>
+            <p class="tips">Heads-up from community guides: cash you carry can be lost if you die or get arrested, and Chapter 1 cash reportedly doesn’t carry into the next chapter. Spend or bank it first. Payouts and unlocks vary by chapter and patch.</p>
+        </section>
+    <section class="hub" id="invHub" aria-label="Inventory">
+        <h2 class="section-title">🎒 Inventory</h2>
+        <div class="hub-card"><datalist id="catlist"></datalist>
+            <div class="invf hrow" style="flex-wrap:wrap"><input id="ic" list="catlist" placeholder="Category (drugs, cars, gold…)" aria-label="Category"><input id="in" placeholder="Item name" maxlength="40" aria-label="Item name"><input type="number" min="1" id="iq" value="1" aria-label="Quantity" style="width:70px"><input type="number" min="0" id="iv" placeholder="Value each $" aria-label="Value each"><input id="il" placeholder="Stored at (safehouse, trunk…)" maxlength="24" aria-label="Location"><label class="hint"><input type="checkbox" id="ih"> 🔥 Hot / stolen</label><button type="button" class="btn-primary" id="iadd">Add item</button></div></div>
+        <div class="hub-card" style="margin-top:12px"><div id="isum"></div><div class="invf hrow" style="margin:8px 0"><select id="ifc" aria-label="Filter category"></select><input id="isr" placeholder="Search" aria-label="Search inventory"><button type="button" class="tb" id="icsv">Copy CSV</button></div><ul id="ilist"></ul></div>
+    </section>
+
+        <h2 class="section-title">Full Clothing Catalog</h2>
+        <input type="search" id="dbFind" placeholder="Search pieces… (click one to wear it)" aria-label="Search catalog">
+        <div class="db-grid" id="dbGrid"></div>
+
+        <div class="stores">
+            <h3>Leonida Clothing Stores</h3>
+            <div class="store-tags">
+                <span class="store-tag">Slinger</span><span class="store-tag">Stock 305 (Ultimate)</span><span class="store-tag">This / That</span>
+                <span class="store-tag">Mid</span><span class="store-tag">Suburban</span><span class="store-tag">Urban Legendz</span>
+                <span class="store-tag">Drip Drops</span><span class="store-tag">Nola</span><span class="store-tag">Ferruccio Tucci</span>
+                <span class="store-tag">Eris</span><span class="store-tag">Goodtime Gear</span><span class="store-tag">Alpha Sports</span><span class="store-tag">Endzone</span>
+                <span class="store-tag">Thrift Stores</span><span class="store-tag">Sara's Unisex Salon</span><span class="store-tag">Electric Fang Tattoo</span>
+            </div>
+        </div>
+
+        <footer>
+            <p class="hint" style="margin-bottom:6px">Shortcuts: R randomize · S save look · 0 reset · Ctrl+Z / Ctrl+Y undo / redo</p>
+            <p>Fan-made GTA 6 outfit tool • Not affiliated with Rockstar Games</p>
+            <p style="margin-top:6px;">Lucia Caminos © Rockstar Games / Take-Two Interactive</p>
+        </footer>
+    </div>
+
+
+    <noscript><p style="padding:24px;text-align:center;color:#c0b0d8">Lucia Outfit Lab needs JavaScript to draw the mannequin. Please enable it and reload.</p></noscript>
+    <div id="toast" role="status"></div>
+</body>
+</html>

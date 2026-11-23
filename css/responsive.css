@@ -1,0 +1,99 @@
+/* ==========================================================================
+   responsive.css — phone / tablet / touch layer
+   Loaded after styles.css, so equal-specificity rules here win.
+   ========================================================================== */
+
+/* ---- Everywhere: safe areas, no tap delay, stable text size ---- */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { min-height: 100vh; min-height: 100dvh; -webkit-tap-highlight-color: transparent; }
+button, select, input, summary, label, [role="button"] { touch-action: manipulation; }
+.container {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+#toast { bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 50; max-width: calc(100vw - 32px); text-align: center; }
+img { max-width: 100%; }
+.outfit-card img { height: auto; aspect-ratio: 784 / 1000; max-height: 320px; }
+@supports (height: 100dvh) { .mannequin-wrap svg { max-height: min(60dvh, 600px); } }
+
+/* ---- Touch devices: no sticky-hover, 44px targets, no iOS focus-zoom ---- */
+@media (hover: none) {
+    .outfit-card:hover { transform: none; box-shadow: none; border-color: rgba(255, 45, 149, .3); }
+    .btn-primary:hover { transform: none; box-shadow: 0 0 18px rgba(255, 45, 149, .35); }
+    .btn-secondary:hover { background: transparent; box-shadow: none; }
+    .tb:not(:disabled):hover { background: rgba(0, 0, 0, .45); }
+    .nv:hover { background: rgba(0, 0, 0, .45); }
+    .mc:hover { border-color: rgba(255, 45, 149, .2); }
+}
+@media (pointer: coarse) {
+    button, .tb, .nv, .chip button, .seg button, .try { min-height: 44px; }
+    .nv { min-width: 44px; }
+    .tb { padding: 8px 16px; }
+    .chip button { padding: 8px 12px; }
+    select, summary, input:not([type="checkbox"]):not([type="range"]) { min-height: 44px; }
+    input, select, textarea { font-size: 16px !important; }   /* iOS Safari zooms the page on focus below 16px */
+    input[type="checkbox"] { width: 22px; height: 22px; }
+    input[type="range"] { min-height: 32px; }
+    .db-card li { padding: 10px 0 10px 14px; }
+    .db-card ul { max-height: 240px; }
+}
+
+/* ---- Tablets and phones (<= 900px): single column, sticky preview ---- */
+@media (max-width: 900px) {
+    .container { padding-top: max(10px, env(safe-area-inset-top)); }
+    header { padding: 16px 6px 8px; }
+    .subtitle { font-size: .92rem; }
+    .section-title { font-size: 1.05rem; letter-spacing: 2px; margin: 26px 0 14px; }
+    .gallery { gap: 14px; margin-bottom: 24px; }
+
+    /* Block layout (not grid) so the preview can stay stuck while the whole controls column scrolls */
+    .main-lab { display: block; margin: 14px 0; }
+    .controls-panel { margin-top: 14px; padding: 14px; }
+    .mannequin-panel {
+        position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+        max-height: none; overflow: visible;
+        margin: 0 -6px; padding: 8px 10px 6px;
+        border-radius: 0 0 18px 18px;
+        background: rgba(15, 10, 24, .96);
+        -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, .55);
+    }
+    .mannequin-panel h3, .wearing-summary { display: none; }   /* the dropdowns already show what is worn */
+    .mannequin-wrap { max-width: none; border-radius: 10px; }
+    .mannequin-wrap svg { max-height: 34vh; }
+    @supports (height: 100dvh) { .mannequin-wrap svg { max-height: 34dvh; } }
+    .toolbar { margin-top: 6px; }
+
+    /* Dropdown on its own full-width row, ‹ › 🔓 buttons share the row beneath */
+    .nav { flex-wrap: wrap; }
+    .nav select { flex: 1 1 100%; order: -1; }
+    .nav .nv { flex: 1; }
+
+    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .btn-row button { padding: 12px 8px; font-size: .74rem; letter-spacing: .5px; }
+    .btn-row .btn-primary { grid-column: 1 / -1; }
+
+    .hub { padding: 14px; margin: 18px 0; border-radius: 14px; }
+    .logbar select, .logbar input { flex: 1 1 100%; width: 100%; min-width: 0; }
+    .logbar button { flex: 1 1 auto; }
+    .quick button, .hrow button { flex: 1 1 auto; }
+    .hub .pr input { width: 92px; }
+    .bodyui .ap span { min-width: 64px; }
+    .db-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+}
+@media (max-width: 560px) {
+    .db-grid { grid-template-columns: 1fr; }
+    h1 { letter-spacing: 1px; }
+    footer { padding: 22px 8px calc(22px + env(safe-area-inset-bottom)); }
+}
+
+/* ---- Landscape phones: not enough height for a sticky preview ---- */
+@media (max-width: 900px) and (max-height: 520px) {
+    .mannequin-panel { position: static; margin: 0; border-radius: 18px; }
+    .mannequin-wrap svg { max-height: 70vh; }
+}
+
+/* ---- Installed (standalone) app ---- */
+@media (display-mode: standalone) { body { overscroll-behavior-y: none; } }
